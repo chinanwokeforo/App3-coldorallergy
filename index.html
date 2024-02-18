@@ -92,24 +92,73 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <div class="page" id="one">
 	<div id="header" class="w3-container w3-flat-carrot">
-		<h1> Are your eyes watery or itchy? </h1>
+		<h1> question 1 </h1> <!-- header title -->
 	</div>
 	
-    	<div id="content" class="w3-container">
-        <p>Put Question 1 content here.</p>    
+    	<div id="content" class="w3-container"> <!-- contains question and button content -->
+        <p> Are your eyes watery or itchy? </p> <!-- question 1 text -->   
+		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a> <!-- button that links to question 2 when clicked & adds 1 to allergy count -->
+         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 2 when clicked & adds 1 to cold count -->
     	</div>
 </div>
-
+<!-- QUESTION 2 PAGE -->
 <div class="page" id="two">
 	<div class="w3-container w3-flat-carrot">
-		<h1>Question 2</h1>
+		<h1>Question 2</h1> <!-- header title -->
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Content of page 2 goes here.</p>
+		<p> Do you have a fever? </p> <!-- header title --> 
+		<a href="#three"   onclick="coldAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to question 3 when clicked & adds 1 to cold count -->
+		<a href="#three"   onclick="allergyAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 3 when clicked & adds 1 to allergy count -->
+	</div>
+</div>	
+<!-- QUESTION 3 PAGE -->
+	<div class="page" id="three"> <!-- contains page content -->
+	<div class="w3-container w3-flat-carrot"> <!-- contains header content -->
+		<h1>Question 3</h1> <!-- header title -->
+	</div>
+	
+	<div id="content" class="w3-container"> <!-- contains question and buttons content -->
+		<p>Do you have a sore throat?</p> <!-- question 3 text -->
+		<a href="#four"   onclick="coldAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to question 4 when clicked & adds 1 to cold count -->
+		<a href="#four"   onclick="allergyAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 4 when clicked & adds 1 to allergy count -->
 	</div>
 </div>	
 
+<!-- QUESTION 4 PAGE -->
+<div class="page" id="four"> <!-- contains page content -->
+	<div class="w3-container w3-flat-carrot"> <!-- contains header content -->
+		<h1>Question 4</h1> <!-- header title -->
+	</div>
+	
+	<div id="content" class="w3-container"> <!-- contains question and buttons content -->
+		<p>Are your symptoms seasonal or chronic?</p> <!-- question 4 text -->
+		<a href="#five"   onclick="allergyAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to results page when clicked & adds 1 to allergy count -->
+		<a href="#five"   onclick="coldAdd();" class="w3-btn w3-black">No</a> <!-- button that links to results page when clicked & adds 1 to cold count -->
+	</div>
+</div>
+
+<!-- RESULTS PAGE -->
+<div class="page" id="five"> <!-- contains page content -->
+	<div class="w3-container w3-flat-carrot"> <!-- contains header content -->
+		<h1>Results</h1> <!-- header title -->
+	</div>
+	
+	<div id="content" class="w3-container"> <!-- contains results content -->
+		<p id="results"></p> <!-- empty text where results will appear -->
+		<a onclick="getResults()" class="w3-btn w3-black">Get results</a> <!-- button that changes text when clicked -->
+		<script> // contains javascript content for getResults function
+			function getResults() // function that makes results with probabilities appear in results paragraph
+			{
+			var allergyPercent = 100*(allergy_count/4); // variable that calculates allergy probability
+			var coldPercent = 100*(cold_count/4); // variable that calculates cold probability
+			var resultText = document.getElementById("results"); // variable that stores results text 
+			resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "%" + "<br> Probability it is a cold = " + coldPercent + "%"; 
+			} // text that pops up in results paragraph when you click button, added % in quotation marks to see percent symbol after number
+		</script>
+	</div>
+</div>
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
