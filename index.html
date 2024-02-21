@@ -139,29 +139,27 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 
-<!-- RESULTS PAGE for allegery or cold this should be at the end of the website -->
+<!-- RESULTS PAGE -->
 <div class="page" id="five"> <!-- contains page content -->
-	<div class="w3-container w3-flat-carrot"> <!-- contains header content -->
-		<h1>Results</h1> <!-- header title -->
-	</div>
-	
-	<div id="content" class="w3-container"> <!-- contains results content -->
-		<p id="results"></p> <!-- empty text where results will appear -->
-		<a onclick="getResults()" class="w3-btn w3-black">Get results</a> <!-- button that changes text when clicked -->
-		<script> // contains javascript content for getResults function
-			function getResults() // function that makes results with probabilities appear in results paragraph
-			{
-			var allergyPercent = 100*(allergy_count/4); // variable that calculates allergy probability
-			var coldPercent = 100*(cold_count/4); // variable that calculates cold probability
-			var resultText = document.getElementById("results"); // variable that stores results text 
-			resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "%" + "<br> Probability it is a cold = " + coldPercent + "%"; 
-			} // text that pops up in results paragraph when you click button, added % in quotation marks to see percent symbol after number
-		</script>
-	</div>
+    <div class="w3-container w3-flat-carrot"> <!-- contains header content -->
+        <h1>Results</h1> <!-- header title -->
+    </div>
+
+    <div id="content" class="w3-container"> <!-- contains results content -->
+        <p id="results"></p> <!-- empty text where results will appear -->
+        <a onclick="getResults()" class="w3-btn w3-black">Get results</a> <!-- button that changes text when clicked -->
+        <script> // contains javascript content for getResults function
+            function getResults() // function that makes results with probabilities appear in results paragraph
+            {
+                var allergyPercent = 100*(allergy_count/4); // variable that calculates allergy probability
+                var coldPercent = 100*(cold_count/4); // variable that calculates cold probability
+                var resultText = document.getElementById("results"); // variable that stores results text 
+                resultText.innerHTML = "Probability it is allergies = " + allergyPercent.toFixed(2) + "%" + "<br> Probability it is a cold = " + coldPercent.toFixed(2) + "%"; 
+            } // text that pops up in results paragraph when you click button, added % in quotation marks to see percent symbol after number
+        </script>
+    </div>
 </div>
 <footer class="w3-bottom w3-container w3-flat-carrot">
-	<p>DIY!</p>
+    <p>DIY!</p>
 </footer>
 
-</body>
-</html>
